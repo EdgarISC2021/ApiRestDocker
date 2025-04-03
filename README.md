@@ -36,7 +36,7 @@ sudo apt update
 sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 docker --version
 
-## Parte 2: Creación del Proyecto FastAPI
+#### Parte 2: Creación del Proyecto FastAPI
 Crear una carpeta con el nombre fastapi-app.
 Dentro de la carpeta, crear la siguiente estructura:
 fastapi-app/
@@ -46,34 +46,8 @@ fastapi-app/
 │
 ├── requirements.txt
 └── Dockerfile
-Agregar el siguiente código en cada archivo:
-app/main.py
 
-from fastapi import FastAPI
-
-app = FastAPI()
-
-@app.get("/")
-def read_root():
-    return {"message": "¡Hola desde FastAPI en Docker!"}
-requirements.txt
-
-fastapi
-uvicorn[standard]
-Dockerfile
-
-FROM python:3.11-slim
-
-WORKDIR /app
-
-COPY requirements.txt .
-
-RUN pip install --no-cache-dir -r requirements.txt
-
-COPY ./app ./app
-
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
-Parte 3: Construcción y Ejecución de la Imagen Docker
+#### Parte 3: Construcción y Ejecución de la Imagen Docker
 Abre una terminal y navega hasta el directorio del proyecto (fastapi-app).
 Ejecuta el siguiente comando para construir la imagen Docker:
 docker build -t fastapi-app .
