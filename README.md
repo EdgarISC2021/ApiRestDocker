@@ -9,6 +9,8 @@ El objetivo de esta actividad es que el estudiante instale Docker en su equipo l
 ## Requisitos
 - Docker (Instalado en el sistema)
 - Python 3.11 o superior
+- FastApi
+- Uvicorn[standart]
 
 ## Guía Paso a Paso
 
