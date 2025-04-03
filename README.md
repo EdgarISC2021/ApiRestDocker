@@ -22,7 +22,6 @@ El objetivo de esta actividad es que el estudiante instale Docker en su equipo l
 #### 1.2 En Linux (Ubuntu)
 Ejecuta los siguientes comandos en la terminal para instalar Docker en Ubuntu:
 
-```bash
 sudo apt update
 sudo apt install ca-certificates curl gnupg lsb-release
 sudo mkdir -p /etc/apt/keyrings
@@ -36,3 +35,56 @@ echo \
 sudo apt update
 sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 docker --version
+
+## Parte 2: Creación del Proyecto FastAPI
+Crear una carpeta con el nombre fastapi-app.
+Dentro de la carpeta, crear la siguiente estructura:
+fastapi-app/
+│
+├── app/
+│   └── main.py
+│
+├── requirements.txt
+└── Dockerfile
+Agregar el siguiente código en cada archivo:
+app/main.py
+
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/")
+def read_root():
+    return {"message": "¡Hola desde FastAPI en Docker!"}
+requirements.txt
+
+fastapi
+uvicorn[standard]
+Dockerfile
+
+FROM python:3.11-slim
+
+WORKDIR /app
+
+COPY requirements.txt .
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY ./app ./app
+
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+Parte 3: Construcción y Ejecución de la Imagen Docker
+Abre una terminal y navega hasta el directorio del proyecto (fastapi-app).
+Ejecuta el siguiente comando para construir la imagen Docker:
+docker build -t fastapi-app .
+Ejecuta el contenedor con el siguiente comando:
+docker run -d -p 8000:8000 fastapi-app
+Accede a la aplicación desde el navegador en http://localhost:8000.
+Consulta la documentación automática de la API en http://localhost:8000/docs.
+Notas
+
+Asegúrate de que Docker esté funcionando correctamente antes de continuar con los pasos.
+La documentación automática de FastAPI es muy útil para probar los endpoints y verificar que todo funcione correctamente.
+Enlaces útiles
+
+FastAPI en Docker
