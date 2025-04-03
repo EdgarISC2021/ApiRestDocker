@@ -36,7 +36,7 @@ sudo apt update
 sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 docker --version
 
-#### Parte 2: Creación del Proyecto FastAPI
+### Parte 2: Creación del Proyecto FastAPI
 Crear una carpeta con el nombre fastapi-app.
 Dentro de la carpeta, crear la siguiente estructura:
 fastapi-app/
@@ -47,18 +47,14 @@ fastapi-app/
 ├── requirements.txt
 └── Dockerfile
 
-#### Parte 3: Construcción y Ejecución de la Imagen Docker
+### Parte 3: Construcción y Ejecución de la Imagen Docker
 Abre una terminal y navega hasta el directorio del proyecto (fastapi-app).
 Ejecuta el siguiente comando para construir la imagen Docker:
-docker build -t fastapi-app .
+' docker build -t fastapi-app . '
 Ejecuta el contenedor con el siguiente comando:
-docker run -d -p 8000:8000 fastapi-app
-Accede a la aplicación desde el navegador en http://localhost:8000.
-Consulta la documentación automática de la API en http://localhost:8000/docs.
-Notas
+' docker run -d -p 8000:8000 fastapi-app '
 
-Asegúrate de que Docker esté funcionando correctamente antes de continuar con los pasos.
-La documentación automática de FastAPI es muy útil para probar los endpoints y verificar que todo funcione correctamente.
-Enlaces útiles
+[ Accede a la aplicación desde el navegador ]( http://localhost:8000 )
 
+[ Consulta la documentación automática de la API ]( en http://localhost:8000/docs )
 FastAPI en Docker
