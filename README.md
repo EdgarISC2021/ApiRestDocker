@@ -39,6 +39,7 @@ docker --version
 ### Parte 2: Creación del Proyecto FastAPI
 Crear una carpeta con el nombre fastapi-app.
 Dentro de la carpeta, crear la siguiente estructura:
+
 fastapi-app/
 │
 ├── app/
@@ -46,6 +47,7 @@ fastapi-app/
 │
 ├── requirements.txt
 └── Dockerfile
+
 
 ### Parte 3: Construcción y Ejecución de la Imagen Docker
 Abre una terminal y navega hasta el directorio del proyecto (fastapi-app).
@@ -56,5 +58,6 @@ Ejecuta el contenedor con el siguiente comando:
 
 [ Accede a la aplicación desde el navegador ]( http://localhost:8000 )
 
-[ Consulta la documentación automática de la API ]( en http://localhost:8000/docs )
+[ Consulta la documentación automática de la API ]( http://localhost:8000/docs )
+
 FastAPI en Docker
